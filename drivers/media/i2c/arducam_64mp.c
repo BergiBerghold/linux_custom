@@ -1509,6 +1509,12 @@ static int arducam_64mp_set_ctrl(struct v4l2_ctrl *ctrl)
 		return 0;
 
 	switch (ctrl->id) {
+    case V4L2_BERGIS_CUSTOM_CTRL:
+        ret = arducam_64mp_write_reg(arducam_64mp,
+        (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF,
+        1,
+        (((unsigned long int)(ctrl->val)) & 0x000000FF));
+    break;
 	case V4L2_CID_ANALOGUE_GAIN:
 		ret = arducam_64mp_write_reg(arducam_64mp,
 					     ARDUCAM_64MP_REG_ANALOG_GAIN,
@@ -2187,6 +2193,11 @@ static int arducam_64mp_init_controls(struct arducam_64mp *arducam_64mp)
 			  V4L2_CID_ANALOGUE_GAIN, ARDUCAM_64MP_ANA_GAIN_MIN,
 			  ARDUCAM_64MP_ANA_GAIN_MAX, ARDUCAM_64MP_ANA_GAIN_STEP,
 			  ARDUCAM_64MP_ANA_GAIN_DEFAULT);
+
+	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
+			  V4L2_BERGIS_CUSTOM_CTRL, 0,
+			  4294967295, 1,
+			  132096);
 
 	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
 			  V4L2_CID_DIGITAL_GAIN, ARDUCAM_64MP_DGTL_GAIN_MIN,
