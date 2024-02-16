@@ -1512,6 +1512,8 @@ static int arducam_64mp_write_reg(struct arducam_64mp *arducam_64mp,
 	if (i2c_master_send(client, buf, len + 2) != len + 2)
 		return -EIO;
 
+	printk(KERN_INFO "Writing to reg %04X value %08X (%d)", reg, val, len);
+
 	return 0;
 }
 
