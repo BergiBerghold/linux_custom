@@ -2352,7 +2352,7 @@ static int arducam_64mp_init_controls(struct arducam_64mp *arducam_64mp)
 
 	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
 			  V4L2_BERGIS_CUSTOM_CTRL, 0,
-			  4294967295, 1,
+			  2000000000, 1,
 			  132096);
 
 	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
