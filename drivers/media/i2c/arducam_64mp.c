@@ -1651,6 +1651,9 @@ static int arducam_64mp_set_ctrl(struct v4l2_ctrl *ctrl)
 
 	switch (ctrl->id) {
 	case V4L2_BERGIS_CUSTOM_CTRL:
+		printk(KERN_INFO "Bergis custom ctrl has been called with input %d / %08X. Meaning reg %08X to val %04X",
+		ctrl->val, ctrl->val, (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF, (((unsigned long int)(ctrl->val)) & 0x000000FF));
+
         ret = arducam_64mp_write_reg(arducam_64mp,
         (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF,
         1,
