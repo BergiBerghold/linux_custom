@@ -1651,7 +1651,25 @@ static int arducam_64mp_set_ctrl(struct v4l2_ctrl *ctrl)
 
 	switch (ctrl->id) {
 	case V4L2_BERGIS_CUSTOM_CTRL:
-		printk(KERN_INFO "Bergis custom ctrl has been called with input %d / %08X. Meaning reg %08X to val %04X",
+		printk(KERN_INFO "Bergis custom ctrl_1 has been called with input %d / %08X. Meaning reg %08X to val %04X",
+		ctrl->val, ctrl->val, (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF, (((unsigned long int)(ctrl->val)) & 0x000000FF));
+
+        ret = arducam_64mp_write_reg(arducam_64mp,
+        (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF,
+        1,
+        (((unsigned long int)(ctrl->val)) & 0x000000FF));
+    break;
+    case V4L2_BERGIS_CUSTOM_CTRL_2:
+		printk(KERN_INFO "Bergis custom ctrl_2 has been called with input %d / %08X. Meaning reg %08X to val %04X",
+		ctrl->val, ctrl->val, (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF, (((unsigned long int)(ctrl->val)) & 0x000000FF));
+
+        ret = arducam_64mp_write_reg(arducam_64mp,
+        (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF,
+        1,
+        (((unsigned long int)(ctrl->val)) & 0x000000FF));
+    break;
+    case V4L2_BERGIS_CUSTOM_CTRL_3:
+		printk(KERN_INFO "Bergis custom ctrl_3 has been called with input %d / %08X. Meaning reg %08X to val %04X",
 		ctrl->val, ctrl->val, (((unsigned long int)(ctrl->val)) >> 8) & 0x0000FFFF, (((unsigned long int)(ctrl->val)) & 0x000000FF));
 
         ret = arducam_64mp_write_reg(arducam_64mp,
@@ -2352,6 +2370,16 @@ static int arducam_64mp_init_controls(struct arducam_64mp *arducam_64mp)
 
 	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
 			  V4L2_BERGIS_CUSTOM_CTRL, 0,
+			  2000000000, 1,
+			  132096);
+
+	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
+			  V4L2_BERGIS_CUSTOM_CTRL_2, 0,
+			  2000000000, 1,
+			  132096);
+
+	v4l2_ctrl_new_std(ctrl_hdlr, &arducam_64mp_ctrl_ops,
+			  V4L2_BERGIS_CUSTOM_CTRL_3, 0,
 			  2000000000, 1,
 			  132096);
 
