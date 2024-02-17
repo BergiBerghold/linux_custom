@@ -61,7 +61,7 @@
 /* Analog gain control */
 #define ARDUCAM_64MP_REG_ANALOG_GAIN		0x0204
 #define ARDUCAM_64MP_ANA_GAIN_MIN		0
-#define ARDUCAM_64MP_ANA_GAIN_MAX		1008
+#define ARDUCAM_64MP_ANA_GAIN_MAX		0x1022 //1008
 #define ARDUCAM_64MP_ANA_GAIN_STEP		1
 #define ARDUCAM_64MP_ANA_GAIN_DEFAULT		0x0
 
@@ -2341,7 +2341,7 @@ static int arducam_64mp_init_controls(struct arducam_64mp *arducam_64mp)
 				  &arducam_64mp_ctrl_ops,
 				  V4L2_CID_EXPOSURE,
 				  ARDUCAM_64MP_EXPOSURE_MIN,
-				  ARDUCAM_64MP_EXPOSURE_MAX,
+				  0xffff, //ARDUCAM_64MP_EXPOSURE_MAX,
 				  ARDUCAM_64MP_EXPOSURE_STEP,
 				  ARDUCAM_64MP_EXPOSURE_DEFAULT);
 
