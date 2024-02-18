@@ -1112,9 +1112,16 @@ const char *v4l2_ctrl_get_name(u32 id)
 	case V4L2_CID_TEST_PATTERN_BLUE:	return "Blue Pixel Value";
 	case V4L2_CID_TEST_PATTERN_GREENB:	return "Green (Blue) Pixel Value";
 	case V4L2_CID_NOTIFY_GAINS:		return "Notify Gains";
-	case V4L2_BERGIS_CUSTOM_CTRL:		return "Custom CTRL";
+	case V4L2_BERGIS_CUSTOM_CTRL_1:		return "Custom CTRL 1";
 	case V4L2_BERGIS_CUSTOM_CTRL_2:		return "Custom CTRL 2";
 	case V4L2_BERGIS_CUSTOM_CTRL_3:		return "Custom CTRL 3";
+	case V4L2_BERGIS_CUSTOM_CTRL_4:		return "Custom CTRL 4";
+	case V4L2_BERGIS_CUSTOM_CTRL_5:		return "Custom CTRL 5";
+	case V4L2_BERGIS_CUSTOM_CTRL_6:		return "Custom CTRL 6";
+	case V4L2_BERGIS_CUSTOM_CTRL_7:		return "Custom CTRL 7";
+	case V4L2_BERGIS_CUSTOM_CTRL_8:		return "Custom CTRL 8";
+	case V4L2_BERGIS_CUSTOM_CTRL_9:		return "Custom CTRL 9";
+	case V4L2_BERGIS_CUSTOM_CTRL_10:	return "Custom CTRL 10";
 
 	/* Image processing controls */
 	/* Keep the order of the 'case's the same as in v4l2-controls.h! */
