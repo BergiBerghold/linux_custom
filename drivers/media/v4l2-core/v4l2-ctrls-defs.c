@@ -1122,6 +1122,27 @@ const char *v4l2_ctrl_get_name(u32 id)
 	case V4L2_BERGIS_CUSTOM_CTRL_8:		return "Custom CTRL 8";
 	case V4L2_BERGIS_CUSTOM_CTRL_9:		return "Custom CTRL 9";
 	case V4L2_BERGIS_CUSTOM_CTRL_10:	return "Custom CTRL 10";
+	case V4L2_BERGIS_CUSTOM_CTRL_11:	return "Custom CTRL 11";
+	case V4L2_BERGIS_CUSTOM_CTRL_12:	return "Custom CTRL 12";
+	case V4L2_BERGIS_CUSTOM_CTRL_13:	return "Custom CTRL 13";
+	case V4L2_BERGIS_CUSTOM_CTRL_14:	return "Custom CTRL 14";
+	case V4L2_BERGIS_CUSTOM_CTRL_15:	return "Custom CTRL 15";
+	case V4L2_BERGIS_CUSTOM_CTRL_16:	return "Custom CTRL 16";
+	case V4L2_BERGIS_CUSTOM_CTRL_17:	return "Custom CTRL 17";
+	case V4L2_BERGIS_CUSTOM_CTRL_18:	return "Custom CTRL 18";
+	case V4L2_BERGIS_CUSTOM_CTRL_19:	return "Custom CTRL 19";
+	case V4L2_BERGIS_CUSTOM_CTRL_20:	return "Custom CTRL 20";
+	case V4L2_BERGIS_CUSTOM_CTRL_21:	return "Custom CTRL 21";
+	case V4L2_BERGIS_CUSTOM_CTRL_22:	return "Custom CTRL 22";
+	case V4L2_BERGIS_CUSTOM_CTRL_23:	return "Custom CTRL 23";
+	case V4L2_BERGIS_CUSTOM_CTRL_24:	return "Custom CTRL 24";
+	case V4L2_BERGIS_CUSTOM_CTRL_25:	return "Custom CTRL 25";
+	case V4L2_BERGIS_CUSTOM_CTRL_26:	return "Custom CTRL 26";
+	case V4L2_BERGIS_CUSTOM_CTRL_27:	return "Custom CTRL 27";
+	case V4L2_BERGIS_CUSTOM_CTRL_28:	return "Custom CTRL 28";
+	case V4L2_BERGIS_CUSTOM_CTRL_29:	return "Custom CTRL 29";
+	case V4L2_BERGIS_CUSTOM_CTRL_30:	return "Custom CTRL 30";
+
 
 	/* Image processing controls */
 	/* Keep the order of the 'case's the same as in v4l2-controls.h! */
