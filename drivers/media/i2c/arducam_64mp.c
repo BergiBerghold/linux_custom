@@ -1512,12 +1512,12 @@ static int arducam_64mp_write_reg(struct arducam_64mp *arducam_64mp,
 	if (i2c_master_send(client, buf, len + 2) != len + 2)
 		return -EIO;
 
-	printk(KERN_INFO "Writing to reg %04X value %08X (%d)", reg, val, len);
+	printk(KERN_INFO "Writing to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
 
 	u32 return_val;
-	arducam_64mp_read_reg(client, reg, len, return_val);
+	arducam_64mp_read_reg(client, reg, len, &return_val);
 
-	printk(KERN_INFO "Read from reg %04X value %08X (%d) on addr %hu", reg, return_val, len, client->addr);
+	printk(KERN_INFO "Read from reg %04X value %08X (%d) on addr 0x%02X", reg, return_val, len, client->addr);
 
 	return 0;
 }
