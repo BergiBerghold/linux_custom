@@ -1514,6 +1514,11 @@ static int arducam_64mp_write_reg(struct arducam_64mp *arducam_64mp,
 
 	printk(KERN_INFO "Writing to reg %04X value %08X (%d)", reg, val, len);
 
+	u32 return_val;
+	arducam_64mp_read_reg(arducam_64mp, reg, len, return_val);
+
+	printk(KERN_INFO "Read from reg %04X value %08X (%d)", reg, return_val, len);
+
 	return 0;
 }
 
