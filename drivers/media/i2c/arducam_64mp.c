@@ -1501,6 +1501,9 @@ static int arducam_64mp_read_reg(struct i2c_client *client,
 static int arducam_64mp_write_reg(struct arducam_64mp *arducam_64mp,
 				  u16 reg, u32 len, u32 val)
 {
+	if (reg != 0x0100)
+		return 0;
+
 	struct i2c_client *client = v4l2_get_subdevdata(&arducam_64mp->sd);
 	u8 buf[6];
 
