@@ -2513,12 +2513,12 @@ static int arducam_64mp_identify_module(struct arducam_64mp *arducam_64mp)
 		goto error;
 	}
 
-	if (val != ARDUCAM_64MP_CHIP_ID) {
-		dev_err(&client->dev, "chip id mismatch: %x!=%x\n",
-			ARDUCAM_64MP_CHIP_ID, val);
-		ret = -EIO;
-		goto error;
-	}
+//	if (val != ARDUCAM_64MP_CHIP_ID) {
+//		dev_err(&client->dev, "chip id mismatch: %x!=%x\n",
+//			ARDUCAM_64MP_CHIP_ID, val);
+//		ret = -EIO;
+//		goto error;
+//	}
 
 	dev_info(&client->dev, "Device found Arducam 64MP.\n");
 
