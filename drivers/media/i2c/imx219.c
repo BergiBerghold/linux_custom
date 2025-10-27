@@ -558,8 +558,8 @@ static int imx219_write_reg(struct imx219 *imx219, u16 reg, u32 len, u32 val)
 {
 	printk(KERN_INFO "Would write to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
 
-	if (reg != 0x0100)
-		return 0;
+//	if (reg != 0x0100)
+//		return 0;
 
 	struct i2c_client *client = v4l2_get_subdevdata(&imx219->sd);
 	u8 buf[6];
