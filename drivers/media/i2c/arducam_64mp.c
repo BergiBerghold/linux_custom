@@ -1501,21 +1501,21 @@ static int arducam_64mp_read_reg(struct i2c_client *client,
 static int arducam_64mp_write_reg(struct arducam_64mp *arducam_64mp,
 				  u16 reg, u32 len, u32 val)
 {
-	if (reg != 0x0100)
-		return 0;
-
 	struct i2c_client *client = v4l2_get_subdevdata(&arducam_64mp->sd);
 	u8 buf[6];
 
 	if (len > 4)
 		return -EINVAL;
 
+	printk(KERN_INFO "Would write to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
+
+	if (reg != 0x0100)
+		return 0;
+
 	put_unaligned_be16(reg, buf);
 	put_unaligned_be32(val << (8 * (4 - len)), buf + 2);
 	if (i2c_master_send(client, buf, len + 2) != len + 2)
 		return -EIO;
-
-	printk(KERN_INFO "Writing to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
 
 	udelay(1000);
 
@@ -2504,14 +2504,14 @@ static int arducam_64mp_identify_module(struct arducam_64mp *arducam_64mp)
 		return PTR_ERR(arducam_identifier);
 	}
 
-	ret = arducam_64mp_read_reg(arducam_identifier,
-				    ARDUCAM_64MP_REG_CHIP_ID,
-				    ARDUCAM_64MP_REG_VALUE_16BIT, &val);
-	if (ret) {
-		dev_err(&client->dev, "failed to read chip id %x, with error %d\n",
-			ARDUCAM_64MP_CHIP_ID, ret);
-		goto error;
-	}
+//	ret = arducam_64mp_read_reg(arducam_identifier,
+//				    ARDUCAM_64MP_REG_CHIP_ID,
+//				    ARDUCAM_64MP_REG_VALUE_16BIT, &val);
+//	if (ret) {
+//		dev_err(&client->dev, "failed to read chip id %x, with error %d\n",
+//			ARDUCAM_64MP_CHIP_ID, ret);
+//		goto error;
+//	}
 
 //	if (val != ARDUCAM_64MP_CHIP_ID) {
 //		dev_err(&client->dev, "chip id mismatch: %x!=%x\n",
