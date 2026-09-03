@@ -564,10 +564,10 @@ static int imx219_write_reg(struct imx219 *imx219, u16 reg, u32 len, u32 val)
 		return -EINVAL;
 
 
-	if (reg != 0x0100) {
-		printk(KERN_INFO "Would write to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
-		return 0;
-	}
+//	if (reg != 0x0100) {
+//		printk(KERN_INFO "Would write to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
+//		return 0;
+//	}
 
 	printk(KERN_INFO "Actually writing to reg %04X value %08X (%d) on addr 0x%02X", reg, val, len, client->addr);
 
